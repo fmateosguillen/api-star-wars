@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../services/peliculas.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-listado-peliculas',
@@ -8,11 +9,14 @@ import { PeliculasService } from '../services/peliculas.service';
 })
 export class ListadoPeliculasComponent implements OnInit {
   
+  displayedColumns: string[] = ['title', 'episode_id', 'director', 'producer'];
+  listadoPeliculas = new MatTableDataSource();
+
   constructor(private peliculasService: PeliculasService) { }
 
   ngOnInit(): void {
     this.peliculasService.getPeliculasList().subscribe(resp => {
-      this.lis
+      this.listadoPeliculas.data = resp.results;
     });
   }
 

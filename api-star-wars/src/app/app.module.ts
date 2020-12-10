@@ -6,6 +6,7 @@ import { ListadoPeliculasComponent } from './listado-peliculas/listado-peliculas
 import {HttpClientModule} from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { PeliculasService } from './services/peliculas.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { PeliculasService } from './services/peliculas.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [PeliculasService],
   bootstrap: [AppComponent]
